@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: todo-nodeapp
-        image: meghaabhardwajj/argocd-nodeapp:latest
+        image: meghaabhardwajj/argocd-nodeapp:13
         ports:
         - containerPort: 8000
