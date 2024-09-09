@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: argocd-nodeapp
+  name: todo-app
   labels:
     app: nodeapp
 spec:
@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: todo-nodeapp
-        image: meghaabhardwajj/argocd-nodeapp:16
+        image: meghaabhardwajj/argocd-nodeapp:1 
         ports:
         - containerPort: 8000
+
