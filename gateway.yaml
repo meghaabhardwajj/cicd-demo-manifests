@@ -5,7 +5,7 @@ metadata:
   namespace: default
   annotations:
     networking.gke.io/load-balancer-type: "Internal"
-    networking.gke.io/internal-load-balancer-subnet: "test-subnet-3"
+    networking.gke.io/internal-load-balancer-subnet: "proxy-subnet"
 spec:
   gatewayClassName: gke-l7-rilb
   listeners:
