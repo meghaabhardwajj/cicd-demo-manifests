@@ -19,4 +19,13 @@ spec:
         image: meghaabhardwajj/argocd-nodeapp:1 
         ports:
         - containerPort: 8000
-
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 2
+          failureThreshold: 2
+          successThreshold: 1
