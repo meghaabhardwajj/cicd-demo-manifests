@@ -1,10 +1,14 @@
 apiVersion: cloud.google.com/v1
 kind: BackendConfig
 metadata:
-  name: http-hc-config
+  name: grafana-backendconfig
+  namespace: monitoring
 spec:
   healthCheck:
-    checkIntervalSec: 15
-    port: 8000
-    type: HTTP
-    requestPath: /
+    checkIntervalSec: 10 
+    timeoutSec: 1         
+    healthyThreshold: 1   
+    unhealthyThreshold: 3 
+    requestPath: "/api/health" 
+    port: 3000            
+
