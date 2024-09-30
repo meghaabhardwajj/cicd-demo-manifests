@@ -1,10 +1,10 @@
 resources:
   limits:
-    cpu: "1"
-    memory: "1Gi"
+    cpu: "1"      
+    memory: "1Gi"  
   requests:
     cpu: "500m"
-    memory: "512Mi"
+    memory: "512Mi" 
 
 autoscaling:
   enabled: true
@@ -14,13 +14,29 @@ autoscaling:
   targetMemory: "60"
 
 
-adminUser: admin
-adminPassword: grafana@blkbox
+adminUser: admin   
+adminPassword: grafana@blkbox  
 
 
-grafana.ini:
-  database:
-    type: postgres
-    url: $__env{connectionString}  # Use environment variable to get the connection string
 
+grafana.ini: 
+    server:
+     root_url: http://grafana.dev.blkbox.ai
+    auth.google:
+      enabled: true
+      client_id: 964487547325-6jn751loit4lsa58eokcu2hfaja9jpsf.apps.googleusercontent.com
+      scopes: openid email profile
+      auth_url: https://accounts.google.com/o/oauth2/auth
+      token_url: https://oauth2.googleapis.com/token
+      api_url: https://openidconnect.googleapis.com/v1/userinfo
+      allowed_domains: blkbox.ai
+      hosted_domain: blkbox.ai
+      allow_sign_up: false
+    database:
+      type: postgres
+      url: $__env{connectionString}
+
+
+envFromSecret: google-secret
 envFromSecret: grafana-database-secret
+
