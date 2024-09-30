@@ -1,0 +1,26 @@
+resources:
+  limits:
+    cpu: "1"
+    memory: "1Gi"
+  requests:
+    cpu: "500m"
+    memory: "512Mi"
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPU: "60"
+  targetMemory: "60"
+
+
+adminUser: admin
+adminPassword: grafana@blkbox
+
+
+grafana.ini:
+  database:
+    type: postgres
+    url: $__env{connectionString}  # Use environment variable to get the connection string
+
+envFromSecret: grafana-database-secret
